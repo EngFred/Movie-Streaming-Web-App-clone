@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSearchStore } from '../../store/searchStore';
 import { FiSearch, FiMenu, FiX, FiInfo } from 'react-icons/fi'; // Import FiInfo icon
 import { motion, AnimatePresence } from 'framer-motion';
-import { useBreakpoint } from '../../hooks/useBreakPoint';
+import { useBreakpoint } from '../../hooks/useBP';
 import { Dialog, Transition } from '@headlessui/react'; // Import Dialog and Transition
 
 const Navbar: React.FC = () => {
