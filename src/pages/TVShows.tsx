@@ -8,7 +8,7 @@ import YouTube from 'react-youtube';
 import type { YouTubeProps } from 'react-youtube';
 import Carousel from '../components/ui/Carousel';
 import type { PaginatedResponse, TVShow } from '../types/tmdb';
-import { Spin } from '../components/ui/Spin'; // Ensure this is imported
+import { Spin } from '../components/ui/Spin';
 
 const TVShows: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ const TVShows: React.FC = () => {
     fetchNextPage: fetchNextPopular,
     hasNextPage: hasNextPopular,
   } = useInfiniteQuery({
-    queryKey: ['tvShows'], // This key is broad, maybe 'popularTVShows' for clarity? Sticking to original for now.
+    queryKey: ['tvShows'],
     queryFn: ({ pageParam }) => getTVShows(pageParam),
     initialPageParam: 1,
     getNextPageParam: (lastPage: PaginatedResponse<TVShow>) =>

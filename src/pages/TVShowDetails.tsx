@@ -8,7 +8,7 @@ import type { YouTubeProps } from 'react-youtube';
 import { Dialog, Transition } from '@headlessui/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Carousel from '../components/ui/Carousel';
-import { Spin } from '../components/ui/Spin'; // Ensure this is imported
+import { Spin } from '../components/ui/Spin'; 
 import type { TVShow, PaginatedResponse } from '../types/tmdb';
 
 const TVShowDetails: React.FC = () => {
@@ -186,7 +186,7 @@ const TVShowDetails: React.FC = () => {
         <Dialog as="div" className="relative z-[9999]" onClose={() => setIsTrailerOpen(false)}>
           {/* First Transition.Child for the overlay */}
           <Transition.Child
-            as="div" // FIX: Render as a div to accept props
+            as="div" 
             className="fixed inset-0 bg-black bg-opacity-90"
             enter="ease-out duration-300"
             enterFrom="opacity-0"
@@ -199,7 +199,7 @@ const TVShowDetails: React.FC = () => {
           <div className="fixed inset-0 flex items-center justify-center p-4">
             {/* Second Transition.Child for the Dialog.Panel wrapper */}
             <Transition.Child
-              as="div" // FIX: Render as a div to accept props
+              as="div" 
               enter="ease-out duration-300"
               enterFrom="opacity-0 scale-95"
               enterTo="opacity-100 scale-100"
@@ -273,7 +273,6 @@ const TVShowDetails: React.FC = () => {
               </div>
               <span className="ml-3 text-lg sm:text-xl font-semibold">
                 {tvShow.vote_average.toFixed(1)}/10
-                {/* Removed vote_count as it's not in your TVShow interface */}
               </span>
             </div>
             <p className="text-sm sm:text-lg mb-8 leading-relaxed text-gray-300">{tvShow.overview}</p>

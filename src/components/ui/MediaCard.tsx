@@ -15,17 +15,17 @@ const MediaCard: React.FC<MediaCardProps> = ({ media }) => {
   const path = 'title' in media ? `/movie/${media.id}` : `/tv/${media.id}`;
 
   return (
-    <Link to={path} className="block relative group w-full aspect-[2/3] rounded-lg overflow-hidden"> {/* Added overflow-hidden and rounded-lg here */}
+    <Link to={path} className="block relative group w-full aspect-[2/3] rounded-lg overflow-hidden">
       <motion.div
-        whileHover={{ scale: 1.05, boxShadow: '0 12px 24px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 0, 0, 0.4)' }} // More pronounced shadow and subtle red ring
+        whileHover={{ scale: 1.05, boxShadow: '0 12px 24px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 0, 0, 0.4)' }}
         transition={{ duration: 0.3 }}
-        className="relative w-full h-full transform-gpu" // Added transform-gpu for better performance with scale
+        className="relative w-full h-full transform-gpu"
       >
         {media.poster_path ? (
           <img
             src={`https://image.tmdb.org/t/p/w500${media.poster_path}`}
             alt={title}
-            className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" // Added scale on hover
+            className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
         ) : (

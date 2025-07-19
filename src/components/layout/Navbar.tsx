@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSearchStore } from '../../store/searchStore';
-import { FiSearch, FiMenu, FiX, FiInfo } from 'react-icons/fi'; // Import FiInfo icon
+import { FiSearch, FiMenu, FiX, FiInfo } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useBreakpoint } from '../../hooks/useBP';
-import { Dialog, Transition } from '@headlessui/react'; // Import Dialog and Transition
+import { Dialog, Transition } from '@headlessui/react';
 
 const Navbar: React.FC = () => {
   const { query, setQuery, searchType, setSearchType } = useSearchStore();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false); // New state for About dialog
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
 
   const { isMobile, isTablet, isDesktop } = useBreakpoint();
   const isSmallScreen = isMobile || isTablet;
@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <NavLink
           to="/"
-          onClick={() => { setIsMenuOpen(false); setIsAboutOpen(false); }} // Close About dialog too
+          onClick={() => { setIsMenuOpen(false); setIsAboutOpen(false); }}
           className="text-netflix-red font-extrabold text-2xl tracking-wide drop-shadow-lg flex-shrink-0"
         >
           Netflix Clone
@@ -201,7 +201,7 @@ const Navbar: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* --- NEW: About Engineer Fred Dialog --- */}
+      {/* About Engineer Fred Dialog --- */}
       <Transition show={isAboutOpen} as={React.Fragment}>
         <Dialog as="div" className="relative z-[9999]" onClose={() => setIsAboutOpen(false)}>
           <Transition.Child
@@ -235,7 +235,7 @@ const Navbar: React.FC = () => {
                     This Netflix Clone was passionately crafted by:
                   </p>
                   <p className="text-netflix-red text-3xl font-extrabold mb-6">
-                    Enginner Fred
+                    Engineer Fred
                   </p>
                   <p className="text-sm text-gray-400">
                     A demonstration of modern web development skills using React, TypeScript, Tailwind CSS, and TanStack Query.

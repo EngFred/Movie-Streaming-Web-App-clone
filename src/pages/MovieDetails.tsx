@@ -4,11 +4,11 @@ import { useQuery, useInfiniteQuery } from '@tanstack/react-query';
 import { getMovieDetails, getMovieVideos, getSimilarMovies, getPersonImages } from '../services/tmdb';
 import { FaPlay, FaPlus, FaFilm, FaStar, FaTimes, FaCalendarAlt, FaClock, FaUserTie, FaCheck } from 'react-icons/fa'; // Added FaCheck
 import YouTube from 'react-youtube';
-import type { YouTubeProps } from 'react-youtube'; // Import YouTubeProps for type checking
+import type { YouTubeProps } from 'react-youtube';
 import { Dialog, Transition } from '@headlessui/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Carousel from '../components/ui/Carousel';
-import { Spin } from '../components/ui/Spin'; // Ensure this is imported for loading states
+import { Spin } from '../components/ui/Spin';
 import type { Movie, PaginatedResponse } from '../types/tmdb';
 
 const MovieDetails: React.FC = () => {
@@ -79,12 +79,10 @@ const MovieDetails: React.FC = () => {
       });
       return Promise.all(imagePromises);
     },
-    // Only enable this query if movieId exists and movie data has loaded with cast credits
     enabled: !!movieId && !!movie?.credits?.cast?.length,
     staleTime: Infinity, // Cast images don't change often
   });
 
-  // Derived data based ONLY on provided Movie interface
   const similarItems = similarMovies?.pages.flatMap((page) => page.results) || [];
   const trailer = videos?.find((v) => v.type === 'Trailer' && v.key);
   const matchPercentage = Math.round((movie?.vote_average ?? 0) * 10);
@@ -141,7 +139,7 @@ const MovieDetails: React.FC = () => {
       {/* --- Hero Section --- */}
       <motion.div
         ref={heroRef}
-        className="relative bg-cover bg-center h-[50vh] md:h-[80vh] flex items-end pb-16" // Consistent height and padding with Home/TVShows
+        className="relative bg-cover bg-center h-[50vh] md:h-[80vh] flex items-end pb-16"
         style={{ backgroundImage: backdropUrl ? `linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 20%, transparent 100%), url(${backdropUrl})` : 'none', y }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-netflix-dark via-black/70 to-transparent z-0" />
@@ -156,7 +154,7 @@ const MovieDetails: React.FC = () => {
             {movie.tagline && (
               <p className="text-base sm:text-lg md:text-2xl italic text-gray-300 mb-6 line-clamp-2 drop-shadow">{movie.tagline}</p>
             )}
-            <p className="text-base sm:text-lg md:text-2xl text-gray-300 mb-6 line-clamp-3 drop-shadow">{movie.overview}</p> {/* Added overview here too */}
+            <p className="text-base sm:text-lg md:text-2xl text-gray-300 mb-6 line-clamp-3 drop-shadow">{movie.overview}</p>
             <div className="flex flex-wrap items-center gap-4">
               <motion.span
                 whileHover={{ scale: 1.05 }}

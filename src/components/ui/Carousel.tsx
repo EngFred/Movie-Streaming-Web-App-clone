@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import type { Movie, TVShow } from '../../types/tmdb';
 import MediaCard from './MediaCard';
 import SkeletonCard from './SkeletonCard';
-import { motion } from 'framer-motion'; // Import motion
+import { motion } from 'framer-motion';
 import { Spin } from './Spin';
 
 type Media = Movie | TVShow;
@@ -23,7 +23,7 @@ const Carousel: React.FC<CarouselProps> = ({
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollAmount = 300; // Pixels to scroll
+  const scrollAmount = 300;
 
   const scrollLeft = () => {
     if (scrollRef.current) {

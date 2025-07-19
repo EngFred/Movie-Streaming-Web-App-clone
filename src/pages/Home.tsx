@@ -41,7 +41,7 @@ const Home: React.FC = () => {
     staleTime: 1000 * 60 * 30,
   });
 
-  // --- NEW: Trending Movies Carousel ---
+  // --- Trending Movies Carousel ---
   const {
     data: trending,
     isLoading: isTrendingLoading,
@@ -267,7 +267,7 @@ const Home: React.FC = () => {
 
       {/* Movie Carousels */}
       <div className="container mx-auto py-8 px-4 sm:px-6 md:px-8">
-        {/* NEW: Trending Movies Section - Positioned first after hero */}
+        {/* Trending Movies Section - Positioned first after hero */}
         {trendingError && (
           <p className="text-red-500 text-center my-8">
             Error loading trending movies: {(trendingError as Error).message}
